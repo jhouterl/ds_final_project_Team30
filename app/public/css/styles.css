@@ -1,67 +1,111 @@
-html,
 body {
   background-color: white;
   color: #333;
 }
 
-nav,
-.navbar {
-  background-color: rgb(20,40,180);
-  color: #eee;
+/* declaration for element by id */
+#user_name {
+  color: green;
 }
 
-.navbar a.navbar-brand,
-.navbar a.nav-link,
-.navbar a.nav-link:visited {
-  color: #eee;
+a {
+  color: red;
 }
 
-.navbar a.nav-link:hover {
-  background-color: rgb(50,80,220);
-  color: #fff;
+h1,h2 {
+  color: #800000;
+}
+.container {
+  background-image: url('img\fire_background.png');
 }
 
-
-.cardPane {
-  background-color: #eee;
-  color: black;
+.logo img {
+  padding: 0;
+  margin: 0;
+  max-height: 80px;
+  max-width: auto;
 }
 
-.cardPaneLeft{
-  border-right: 1px solid rgb(77,55,41);
-}
-
-.cardPaneRight{
-  border-left: 1px solid rgb(77,55,41);
-}
-
-.patientCard {
-  margin: 4px;
-  padding: 4px 8px;
-  border: 1px solid #999;
-  border-radius: 5px;
+.topnav {
   background-color: white;
+  overflow: hidden;
 }
-.patientCard .birthDate{
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #800000;
+  color: white;
+}
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #800000;
+  color: white;
+}
+
+/* Intro Style Pic */
+#intro {
+  width: 100%;
+  background: url("../img/fire_background.png");
+  background-repeat: no-repeat;
+}
+
+
+#intro .intro-info h2 {
+  color: black;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+#about .about_text {
   float: right;
 }
 
-.patientCard .lastName {
-  font-weight:bold;
+#about .about_pic {
+  float: left;
 }
 
-.triageCritical {
-  border: 5px solid #C00;
-  background-color: #fee;
-  margin: 8px 4px;
+
+
+/** Tablesort css **/
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
 }
 
-.triageUrgent {
-  border: 3px solid rgb(209,140,76);
-  margin: 8px 4px;
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
-.triageMinor {
-  border: 3px solid rgb(50,80,220);
-  margin: 8px 4px;
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 0.4;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
 }
