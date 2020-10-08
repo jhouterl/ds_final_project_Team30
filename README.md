@@ -1,2 +1,2 @@
-# msis-triage-2020
-The in-class example for MSIS 2020
+# ds_final_project_Team30
+This is the final project for MSIS Core Team 30.
