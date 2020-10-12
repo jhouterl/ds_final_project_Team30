@@ -1,22 +1,8 @@
 USE dsteam30;
 
-CREATE TABLE Station (
-    station_number INTEGER PRIMARY KEY,
-    station_name VARCHAR(64),
-    street_address VARCHAR(64),
-    city VARCHAR(64),
-    state VARCHAR(64),
-    zipcode INTEGER,
-    contact_email VARCHAR(200),
-    contact_number VARCHAR(64)
-);
-
-INSERT INTO Station (station_number, station_name, street_address, city, state, zipcode, contact_email, contact_number) VALUES
-(1, "Btown", "12345 Long St", "Bloomington",  "IN", 47401, "abc@example.com", "812-555-5555");
-
 CREATE TABLE Person (
-    person_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    station_number INTEGER REFERENCES Station(station_number),
+    person_id INT(11) AUTO_INCREMENT,
+    certification_id INT(11),
     first_name VARCHAR(64),
     last_name VARCHAR(64),
     position_name VARCHAR(64),
@@ -24,17 +10,27 @@ CREATE TABLE Person (
     street_address VARCHAR(64),
     city VARCHAR(64),
     state VARCHAR(64),
-    zipcode INTEGER,
-    work_phone VARCHAR(64),
-    mobile_phone VARCHAR(64),
-    radio_number INTEGER,
-    isActive BIT
+    zipcode INT(11),
+    phone VARCHAR(64),
+    radio_number INT(11),
+    station_num INT(11),
+    isActive VARCHAR(64),
+    PRIMARY KEY (person_id),
+    FOREIGN KEY (certification_id) REFERENCES Certifications(certification_id)
 );
 
 CREATE TABLE Certifications (
-    certification_id INTEGER PRIMARY KEY,
-    person_id INTEGER REFERENCES Person(person_id),
+    certification_id INT(11),
     certification_name VARCHAR(64),
-    renewed_date DATE,
-    default_expiration_date DATE
+    default_expiration_period INT(11),
+    PRIMARY KEY (certification_id)
   );
+
+CREATE TABLE Person_Certifications (
+  person_id INT(11),
+  certification_id INT(11),
+  earned_date DATE,
+  expiration_date DATE,
+  FOREIGN KEY (person_id) REFERENCES Person(person_id),
+  FOREIGN KEY (certification_id) REFERENCES Certifications(certification_id)
+);
