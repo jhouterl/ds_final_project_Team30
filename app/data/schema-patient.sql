@@ -2,10 +2,8 @@ USE dsteam30;
 
 CREATE TABLE Person (
     person_id INT(11) AUTO_INCREMENT,
-    certification_id INT(11),
     first_name VARCHAR(64),
     last_name VARCHAR(64),
-    position_name VARCHAR(64),
     gender CHAR(1) DEFAULT ' ',
     street_address VARCHAR(64),
     city VARCHAR(64),
@@ -14,7 +12,8 @@ CREATE TABLE Person (
     phone VARCHAR(64),
     radio_number INT(11),
     station_num INT(11),
-    isActive VARCHAR(64),
+    position_name VARCHAR(64),
+    certification_id INT(11),
     PRIMARY KEY (person_id),
     FOREIGN KEY (certification_id) REFERENCES Certifications(certification_id)
 );
