@@ -37,28 +37,73 @@
     </div>
 </section>
 
-<form action="view_members.php" method="POST" v-on:submit.prevent="handleNewPtForm">
-<!-- First Name: <input type="text" name="first_name" required> -->
-First Name: <input type="text" v-model="newPtForm.first_name" class="form-control" id="newPtfirst_name">
-Last Name: <input type="text" name="last_name" required>
-Gender: <input type="text" name="gender" required>
-Street: <input type="text" name="street_address">
-City: <input type="text" name="city" required>
-State: <input type="text" name="state" required>
-Zip Code: <input type="text" name="zipcode" required>
-Phone: <input type="text" name="phone">
-Radio Number: <input type="text" name="radio_number">
-Station Number: <input type="text" name="station_num">
-Position: <input type="text" name="position_name">
-Certifications: <input type="text" name="cert">
+<div class="container-fluid">
+  <div class="row" id="membersPage">
+    <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
+      <form method="post" v-on:submit.prevent="handleNewMemberForm">
 
-  <!-- <input type="submit" name="submit" value="Submit"> -->
-  <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+        <div class="form-group">
+        <label for="first_name">First Name: </label>
+        <input type="text" v-model="newMemberForm.first_name" class="form-control" id="first_name">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name: </label>
+        <input type="text" v-model="newMemberForm.last_name" class="form-control" id="last_name">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender: </label>
+        <input type="text" v-model="newMemberForm.gender" class="form-control" id="gender">
+      </div>
+      <div class="form-group">
+        <label for="street_address">Street: </label>
+        <input type="text" v-model="newMemberForm.street_address" class="form-control" id="street_address">
+      </div>
+      <div class="form-group">
+        <label for="city">City: </label>
+        <input type="text" v-model="newMemberForm.city" class="form-control" id="city">
+      </div>
+      <div class="form-group">
+        <label for="state">State: </label>
+        <input type="text" v-model="newMemberForm.state" class="form-control" id="state">
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zip Code: </label>
+        <input type="text" v-model="newMemberForm.zipcode" class="form-control" id="zipcode">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone: </label>
+        <input type="text" v-model="newMemberForm.phone" class="form-control" id="phone">
+      </div>
+      <div class="form-group">
+        <label for="radio_number">Radio Number: </label>
+        <input type="text" v-model="newMemberForm.radio_number" class="form-control" id="radio_number">
+      </div>
+      <div class="form-group">
+        <label for="station_num">Station Number: </label>
+        <input type="text" v-model="newMemberForm.station_num" class="form-control" id="station_num">
+      </div>
+      <div class="form-group">
+        <label for="position_name">Position: </label>
+        <input type="text" v-model="newMemberForm.position_name" class="form-control" id="position_name">
+      </div>
+      <div class="form-group">
+        <label for="certification_id">Certifications: </label>
+        <input type="text" v-model="newMemberForm.certification_id" class="form-control" id="certification_id">
+      </div>
 
+      <button type="submit" class="btn btn-primary">Add</button>
+
+      </form>
+
+      <h3>Members</h3>
+      <div class="patientCard" v-for="member in memberList" v-on:click="activeMember = member">
+        <span class="last_name">{{ member.last_name }}</span>,
+        <span clas="first_name">{{ member.first_name }}</span>
+      </div>
+
+    </div>
 
         <div class="col cardPane cardPaneRight">
-          <h3>Waiting patients</h3>
           <div v-for="visit in visitList" class="patientCard triageCritical" data-patient_id="3" data-visit_id="520">
             <span class="lastName">{{ visit.lastName }}</span>,
             <span clas="firstName">{{ visit.firstName }}</span>

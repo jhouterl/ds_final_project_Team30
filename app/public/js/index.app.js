@@ -1,37 +1,46 @@
 var app = new Vue({
-  el: '#triagePage',
+  el: '#membersPage',
   data: {
-    ptList: [],
+    memberList: [],
     visitList: [],
-    activePt: null,
+    activeMember: null,
     triageForm: {
       priority: null,
       symptoms: ''
     },
-    newPtForm: {}
+    newMemberForm: {}
   },
   computed: {
     activePtName() {
-      return this.activePt ? this.activePt.lastName + ', ' + this.activePt.firstName : ''
+      return this.activeMember ? this.activeMember.last_name + ', ' + this.activeMember.first_name : ''
     }
   },
   methods: {
-    newPtData() {
+    newMemberData() {
       return {
-        firstName: "",
-        lastName: "",
-        dob: "",
-        sexAtBirth: ""
+        first_name: "",
+        last_name: "",
+        gender: "",
+        street_address: "",
+        city: "",
+        state: "",
+        zipcode: "",
+        phone: "",
+        radio_number: "",
+        station_num: "",
+        position_name: "",
+        certification_id: ""
+
       }
     },
-    handleNewPtForm( evt ) {
+    handleNewMemberForm( evt ) {
       // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
       // TODO: Validate the data!
 
       fetch('api/records/post.php', {
         method:'POST',
-        body: JSON.stringify(this.newPtForm),
+        body: JSON.stringify(this.newMemberForm),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -40,18 +49,18 @@ var app = new Vue({
       .then( json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
-        this.ptList.push(json[0]);
+        this.memberList.push(json[0]);
       });
 
       console.log("Creating (POSTing)...!");
-      console.log(this.newPtForm);
+      console.log(this.newMemberForm);
 
-      this.newPtForm = this.newPtData();
+      this.newMemberForm = this.newMemberData();
     },
     handleTriageForm( evt ) {
       console.log("Form submitted!");
 
-      this.triageForm.pt = this.activePt;
+      this.triageForm.member = this.activeMember;
       console.log(this.triageForm);
 
     }
@@ -60,7 +69,7 @@ var app = new Vue({
     fetch("api/records/")
     .then( response => response.json() )
     .then( json => {
-      this.ptList = json;
+      this.memberList = json;
 
       console.log(json)}
     );

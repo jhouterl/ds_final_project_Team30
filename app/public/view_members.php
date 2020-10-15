@@ -1,7 +1,3 @@
-<div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-  <span clas="first_name">{{ pt.first_name }}</span>
-</div>
-
 <?php
 
 require 'common.php';
