@@ -40,7 +40,7 @@
 <div class="container-fluid">
   <div class="row" id="membersPage">
     <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-      <form method="post" v-on:submit.prevent="handleNewMemberForm">
+      <form action="view_members.html" method="post" v-on:submit.prevent="handleNewMemberForm">
 
         <div class="form-group">
         <label for="first_name">First Name: </label>
@@ -96,7 +96,7 @@
       </form>
 
       <h3>Members</h3>
-      <div class="patientCard" v-for="member in memberList" v-on:click="activeMember = member">
+      <div class="memberCard" v-for="member in memberList" v-on:click="activeMember = member">
         <span class="last_name">{{ member.last_name }}</span>,
         <span clas="first_name">{{ member.first_name }}</span>
       </div>
