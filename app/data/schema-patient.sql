@@ -10,10 +10,12 @@ CREATE TABLE Person (
     state VARCHAR(64),
     zipcode INT(11),
     phone VARCHAR(64),
+    email VARCHAR(64),
     radio_number INT(11),
     station_num INT(11),
     position_name VARCHAR(64),
     certification_id INT(11),
+    isactive VARCHAR(5),
     PRIMARY KEY (person_id),
     FOREIGN KEY (certification_id) REFERENCES Certifications(certification_id)
 );

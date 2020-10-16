@@ -13,7 +13,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO Person (first_name, last_name, gender, street_address, city, state, zipcode, phone, radio_number, station_num, position_name, certification_id)
+  'INSERT INTO Person (first_name, last_name, gender, street_address, city, state, zipcode, phone, email, radio_number, station_num, position_name)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
@@ -27,10 +27,11 @@ $stmt->execute([
   $_POST['state'],
   $_POST['zipcode'],
   $_POST['phone'],
+  $_POST['email'],
   $_POST['radio_number'],
   $_POST['station_num'],
-  $_POST['position_name'],
-  $_POST['certification_id'],
+  $_POST['position_name']
+#  $_POST['isactive']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -39,5 +40,5 @@ $stmt->execute([
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-header('HTTP/1.1 303 See Other');
-header('Location: ../public/');
+// header('HTTP/1.1 303 See Other');
+ //header('Location: ../public/');

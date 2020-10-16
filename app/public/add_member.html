@@ -40,7 +40,7 @@
 <div class="container-fluid">
   <div class="row" id="membersPage">
     <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-      <form action="view_members.html" method="post" v-on:submit.prevent="handleNewMemberForm">
+      <form method="post" v-on:submit.prevent="handleNewMemberForm">
 
         <div class="form-group">
         <label for="first_name">First Name: </label>
@@ -75,6 +75,10 @@
         <input type="text" v-model="newMemberForm.phone" class="form-control" id="phone">
       </div>
       <div class="form-group">
+        <label for="phone">Email: </label>
+        <input type="text" v-model="newMemberForm.email" class="form-control" id="email">
+      </div>
+      <div class="form-group">
         <label for="radio_number">Radio Number: </label>
         <input type="text" v-model="newMemberForm.radio_number" class="form-control" id="radio_number">
       </div>
@@ -85,10 +89,6 @@
       <div class="form-group">
         <label for="position_name">Position: </label>
         <input type="text" v-model="newMemberForm.position_name" class="form-control" id="position_name">
-      </div>
-      <div class="form-group">
-        <label for="certification_id">Certifications: </label>
-        <input type="text" v-model="newMemberForm.certification_id" class="form-control" id="certification_id">
       </div>
 
       <button type="submit" class="btn btn-primary">Add</button>
@@ -103,14 +103,6 @@
 
     </div>
 
-        <div class="col cardPane cardPaneRight">
-          <div v-for="visit in visitList" class="patientCard triageCritical" data-patient_id="3" data-visit_id="520">
-            <span class="lastName">{{ visit.lastName }}</span>,
-            <span clas="firstName">{{ visit.firstName }}</span>
-            <span class="birthDate text-right">{{ visit.dob }}</span>
-          </div>
-
-        </div>
       </div>
     </div>
     <!-- END content -->
@@ -124,6 +116,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

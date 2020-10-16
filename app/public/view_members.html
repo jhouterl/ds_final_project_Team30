@@ -42,19 +42,25 @@
     <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
 
       <h3>Members</h3>
-        <div class="patientCard" v-for="member in memberList" v-on:click="activeMember = member">
+        <div class="members" v-for="member in members" v-on:click="activeMember = member">
           Full Name: <span class="first_name">{{ member.first_name }}</span> <span clas="last_name">{{ member.last_name }}</span>
+          <br>
           Position: <span class="position_name">{{ member.position_name }}</span>
+          <br>
+          Gender: <span class="gender">{{ member.gender }}</span>
+          <br>
+          Address: <span class="street_address">{{ member.street_address }}</span> <span clas="city">{{ member.city }}</span>, <span clas="state">{{ member.state }}</span> <span clas="zipcode">{{ member.zipcode }}</span>
+          <br>
+          Phone: <span class="phone">{{ member.phone }}</span>
+          <br>
+          Certification(s): <span class="position_name">{{ member.certification_id }}</span>
+          <br>
+          Radio Number: <span class="radio_number">{{ member.position_name }}</span>
+          <br>
+          Station: <span class="station_num">{{ member.station_num }}</span>
           </div>
-
     </div>
 
-        <div class="col cardPane cardPaneRight">
-          <div v-for="visit in visitList" class="patientCard triageCritical" data-patient_id="3" data-visit_id="520">
-            <span class="lastName">{{ visit.lastName }}</span>,
-            <span clas="firstName">{{ visit.firstName }}</span>
-            <span class="birthDate text-right">{{ visit.dob }}</span>
-          </div>
 
         </div>
       </div>
@@ -65,6 +71,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
