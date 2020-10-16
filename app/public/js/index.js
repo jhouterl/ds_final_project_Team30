@@ -23,10 +23,10 @@ var app = new Vue({
         state: "",
         zipcode: "",
         phone: "",
-        email: "",
         radio_number: "",
         station_num: "",
-        position_name: ""
+        position_name: "",
+        email: ""
 //        isactive: ""
       }
     },
@@ -42,7 +42,7 @@ var app = new Vue({
           "Content-Type": "application/json; charset=utf-8"
         }
       })
-      .then( response => response.json())
+      .then( response => response.json() )
       .then( json => {
         console.log("Returned from post:", json);
         // TODO: test a result was returned!
@@ -52,6 +52,7 @@ var app = new Vue({
 
       console.log("Creating (POSTing)...!");
       console.log(this.newMemberForm);
+    }
   },
   created() {
     fetch("api/records/")
@@ -64,4 +65,4 @@ var app = new Vue({
 
     this.newMemberForm = this.newMemberData();
   }
-}})
+})
