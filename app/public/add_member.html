@@ -24,7 +24,7 @@
     <div class="topnav">
     <a href="contact.html">CONTACT US</a>
     <a href="reports.html">REPORTS</a>
-    <a href="add_member.html" class="active">MEMBERS</a>
+    <a href="members.html">MEMBERS</a>
     <a href="cert.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
     <a href="login.html">HOME</a>
@@ -37,10 +37,10 @@
     </div>
 </section>
 
-<div class="container-fluid">
-  <div class="row" id="membersPage">
+<div class="container-fluid" id="membersPage">
+  <div class="row" id="memberList">
     <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-      <form method="post" v-on:submit.prevent="handleNewMemberForm">
+    <form method="post" v-on:submit.prevent="handleNewMemberForm">
 
         <div class="form-group">
         <label for="first_name">First Name: </label>
@@ -91,15 +91,9 @@
         <input type="text" v-model="newMemberForm.position_name" class="form-control" id="position_name">
       </div>
 
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" id="submit" class="btn btn-primary" onclick="submitMember()">Add Member</button>
 
       </form>
-
-      <h3>Members</h3>
-      <div class="memberCard" v-for="member in memberList" v-on:click="activeMember = member">
-        <span class="last_name">{{ member.last_name }}</span>,
-        <span clas="first_name">{{ member.first_name }}</span>
-      </div>
 
     </div>
 

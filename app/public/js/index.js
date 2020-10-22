@@ -15,6 +15,7 @@ var app = new Vue({
   methods: {
     newMemberData() {
       return {
+        person_id: "",
         first_name: "",
         last_name: "",
         gender: "",
@@ -65,4 +66,8 @@ var app = new Vue({
 
     this.newMemberForm = this.newMemberData();
   }
-})
+});
+
+function submitMember() {
+  window.location.href = "view_members.html"
+}
