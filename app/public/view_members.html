@@ -50,6 +50,9 @@
           <th scope="col">Email</th>
           <th scope="col">Radio Number</th>
           <th scope="col">Station</th>
+          <th scope="col">View Certifications</th>
+          <th scope="col">Edit Entry</th>
+          <th scope="col">Delete Entry</th>
         </tr>
       </thead>
       <tbody class="members" id="membersPage">
@@ -62,6 +65,15 @@
           <td class="email">{{ member.email }}</td>
           <td class="radio_number">{{ member.radio_number }}</td>
           <td class="phone">{{ member.station_num }}</td>
+          <td class="certifications"> <form action="cert.html">
+          <button type="submit">View Certifications</button>
+           </form></td>
+          <td class="edit_member"> <form action="edit_member.html">
+          <button type="submit">Edit Member</button>
+          </form></td>
+          <td class="certifications"> <form action=delete>
+          <button type="submit">Delete Member</button>
+          </form></td>
         </tr>
       </tbody>
     </table>
