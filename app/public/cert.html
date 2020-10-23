@@ -47,65 +47,16 @@
       <th scope="col">Members</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td>Winnie the Pooh</td>
-      <td>A.A. Milne</td>
-      <td>2009</td>
-      <td>Methuen Publishing</td>
-    </tr>
-
-    <tr>
-      <td>Adventures of Zara</td>
-      <td>Jenna Houterloot</td>
-      <td>2020</td>
-      <td>DPM</td>
-    </tr>
-
-    <tr>
-      <td>How to be a Programmer</td>
-      <td>Michael Hanley</td>
-      <td>1997</td>
-      <td>Code Publishers</td>
-    </tr>
-
-    <tr>
-      <td>Jack and Jill</td>
-      <td>Mother Goose</td>
-      <td>1996</td>
-      <td>Little, Brown and Company</td>
-    </tr>
-
-    <tr>
-      <td>Consulting 101</td>
-      <td>Big 4</td>
-      <td>2010</td>
-      <td>Project Company</td>
-    </tr>
-
-    <tr>
-      <td><form>
-  <div class="form-group">
-    <input type="text" class="form-control" id="title" placeholder="Title">
-    </div> </form>
-      </td>
-      <td><form>
-  <div class="form-group">
-    <input type="text" class="form-control" id="authors" placeholder="Author(s)">
-    </div> </form>
-      </td>
-      <td><form>
-  <div class="form-group">
-    <input type="number" class="form-control" id="year" placeholder="Year">
-    </div> </form>
-      </td>
-      <td><form>
-  <div class="form-group">
-    <input type="text" class="form-control" id="publisher" placeholder="Publisher">
-    </div> </form>
-      </td>
-      <td><form>
-      </tr>
+    <tbody class="members" id="membersPage">
+      <tr class="members" v-for="member in memberList" v-on:click="activeMember = member">
+        <td class="first_name">{{ member.first_name }} {{ member.last_name }}</td>
+        <td class="position_name">{{ member.position_name }}</td>
+        <td class="gender">{{ member.gender }}</td>
+        <td class="street_address">{{ member.street_address }} {{ member.city }}, {{ member.state }} {{ member.zipcode }}</td>
+        <td class="phone">{{ member.phone }}</td>
+        <td class="email">{{ member.email }}</td>
+        <td class="radio_number">{{ member.radio_number }}</td>
+        <td class="phone">{{ member.station_num }}</td>
   </tbody>
 </table>
 <!-- Tablesort from http://tristen.ca/tablesort/demo/ -->

@@ -71,9 +71,13 @@
           <td class="edit_member"> <form action="edit_member.html">
           <button type="submit">Edit Member</button>
           </form></td>
-          <td class="certifications"> <form action=delete>
-          <button type="submit">Delete Member</button>
+        <div class="container-fluid" id="membersPage">
+          <td class="certifications">
+              <div class="row" id="memberList">
+                <form method="delete" v-on:submit.prevent="handleNewMemberForm">
+          <button type="submit" id="delete" class="btn btn-primary">Add Member</button>
           </form></td>
+        </div> </div>
         </tr>
       </tbody>
     </table>
