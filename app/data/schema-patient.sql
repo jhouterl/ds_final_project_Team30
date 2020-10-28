@@ -21,8 +21,9 @@ CREATE TABLE Person (
 );
 
 CREATE TABLE Certifications (
-    certification_id INT(11),
+    certification_id INT(11) AUTO_INCREMENT,
     certification_name VARCHAR(64),
+    certification_agency VARCHAR(64),
     default_expiration_period INT(11),
     PRIMARY KEY (certification_id)
   );

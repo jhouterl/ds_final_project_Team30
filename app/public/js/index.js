@@ -1,20 +1,65 @@
-var app = new Vue({
+var membersPage = new Vue({
   el: '#membersPage',
   data: {
     memberList: [],
-    visitList: [],
-    activeMember: null,
-    triageForm: {},
-    newMemberForm: {}
+//    activeMember: null,
+    newMember: {}
   },
-  computed: {
-    activeMemberName() {
-      return this.activeMember ? this.activeMember.last_name + ', ' + this.activeMember.first_name : ''
-    }
-  },
+//  computed: {
+//    activeMemberName() {
+//      return this.activeMember ? this.activeMember.last_name + ', ' + this.activeMember.first_name : ''
+//    }
+//  },
   methods: {
-    newMemberData() {
-      return {
+    fetchMembers() {
+      fetch('api/records/index.php')
+      .then(response => response.json())
+      .then(json => { membersPage.memberList = json })
+    },
+
+//    handleNewMemberForm( evt ) {
+      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
+
+      // TODO: Validate the data!
+
+  //    fetch('api/records/post.php', {
+  //      method:'POST',
+  //      body: JSON.stringify(this.newMember),
+    //    headers: {
+    //      "Content-Type": "application/json; charset=utf-8"
+    //    }
+  //    })
+  //    .then( response => response.json() )
+  //    .then( json => {
+  //      console.log("Returned from post:", json);
+        // TODO: test a result was returned!
+//        this.memberList.push(json[0]);
+//        this.newMember = this.newMemberData();
+  //    });
+
+    //  console.log("Creating (POSTing)...!");
+  //    console.log(this.newMember);
+//},
+
+    handleDelete() {
+      fetch('api/records/delete.php', {
+        method:'POST',
+        body: JSON.stringify(this.newMember),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+      }
+      })
+        .then( response => response.json() )
+        .then ( json => {membersPage.memberList = json} )
+        .catch ( err => {
+          console.error('WORK TRIAGE ERROR:');
+          console.error(err);
+    })
+          this.handleReset();
+    },
+
+    handleReset() {
+      this.newMember = {
         person_id: "",
         first_name: "",
         last_name: "",
@@ -28,46 +73,18 @@ var app = new Vue({
         station_num: "",
         position_name: "",
         email: ""
-//        isactive: ""
-      }
-    },
-    handleNewMemberForm( evt ) {
-      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
-
-      // TODO: Validate the data!
-
-      fetch('api/records/post.php', {
-        method:'POST',
-        body: JSON.stringify(this.newMemberForm),
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .then( json => {
-        console.log("Returned from post:", json);
-        // TODO: test a result was returned!
-        this.memberList.push(json[0]);
-        this.newMemberForm = this.newMemberData();
-      });
-
-      console.log("Creating (POSTing)...!");
-      console.log(this.newMemberForm);
     }
-  },
-  created() {
-    fetch("api/records/")
-    .then( response => response.json() )
-    .then( json => {
-      this.memberList = json;
-
-      console.log(json)}
-    );
-
-    this.newMemberForm = this.newMemberData();
   }
-});
+},
+
+  created() {
+
+  //  this.newMember = this.newMemberData();
+    this.fetchMembers();
+    this.handleReset();
+//    this.handleDelete();
 
 function submitMember() {
   window.location.href = "view_members.html"
 }
+}})
