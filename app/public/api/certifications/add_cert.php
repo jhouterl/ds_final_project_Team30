@@ -35,7 +35,6 @@ $stmt = $db->prepare(
  ]);
 
 
-
 $pk = $db->lastInsertId();
 
  //Step 4: Output
