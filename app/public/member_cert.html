@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<!-- citing CSS from my senior capstone project
+<link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
+<!-- my custom CSS goes here -->
+<link rel="stylesheet" href="css/styles.css">
+
+ <title>Member Certifications</title>
+</head>
+<body>
+
+ <div class="logo float-left">
+<!-- Uncomment below if you prefer to use an image logo -->
+<a href="login.html" class="scrollto"><img src="img/logo.png" alt="Responsive image" class="img-fluid"></a>
+</div>
+
+ <div class="topnav">
+<a href="contact.html">CONTACT US</a>
+<a href="reports.html">REPORTS</a>
+<a href="members.html">MEMBERS</a>
+<a href="cert.html" class="active">CERTIFICATIONS</a>
+<a href="about_us.html">ABOUT US</a>
+<a href="login.html">HOME</a>
+</div>
+
+ <section id="intro" class="clearfix">
+
+ <div class="intro-info">
+<center><h2><br><br><br>Oconee County Fire Rescue Certifications<br>Certifications by Member<br><br><br></h2></center>
+</div>
+</section>
+
+<center>
+<div class="row">
+<div id="mainContent" class="col-md">
+<div id="mcForm">
+<form @submit.prevent = "handleSubmit">
+<h2>Member Certification Form</h2>
+<div class="form-group row">
+<label for="inputMemberID" class="col-sm-2 col-form-label">Member ID</label>
+<div class="col-sm-10">
+<input type="number" class="form-control" id="inputMemberID" placeholder="Please enter member ID" v-model="mc.memberID">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputCertificationID" class="col-sm-2 col-form-label">Certification ID</label>
+<div class="col-sm-10">
+<input type="number" class="form-control" id="inputCertificationID" placeholder="Please enter certification ID" v-model="mc.certificationID">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputExpirationDate" class="col-sm-2 col-form-label">Expiration Date</label>
+<div class="col-sm-10">
+<input type="date" class="form-control" id="inputExpirationDate" placeholder="Please enter the expiration date" v-model="mc.expDate">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputRenewDate" class="col-sm-2 col-form-label">Renew Date</label>
+<div class="col-sm-10">
+<input type="date" class="form-control" id="inputRenewDate" placeholder="Please enter the renew date" v-model="mc.renewDate">
+</div>
+</div>
+
+ <div class="form-group row">
+<div class="col-sm-3">
+<button type="submit" class="btn btn-primary">Add</button>
+</div>
+</div>
+
+ </form>
+</div>
+</div>
+</div>
+</div>
+
+ <div class="container">
+<div class="row">
+<div id="mainContent" class="col-md">
+<div id="mcEntry">
+<table class="table table-sm table-hover">
+<thead class="thead-dark">
+<tr>
+<th>Member ID</th>
+<th>Certification ID </th>
+<th>Expiration Date</th>
+<th>Renew Date</th>
+</tr>
+</thead>
+<tbody>
+<tr v-for='c in mcs'>
+<td>{{c.memberID}}</td>
+<td>{{c.certificationID}}</td>
+<td>{{c.expDate}}</td>
+<td>{{c.renewDate}}</td>
+</tr>
+</tbody>
+</table>
+
+<div class="form-group row">
+<form @submit.prevent="handleDelete()">
+<h2>Delete Certification</h2>
+<div class="form-group row">
+<label for="inputFirstName" class="col-sm-10 col-form-label">Member ID</label>
+<div class="col-sm-10">
+<input type="number" class="form-control" id="inputMemberID" placeholder="Please enter Member ID" v-model="mc.memberID">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputFirstName" class="col-sm-10 col-form-label">Certification ID</label>
+<div class="col-sm-10">
+<input type="number" class="form-control" id="inputCertificationID" placeholder="Please enter Certification ID" v-model="mc.certificationID">
+</div>
+</div>
+
+ <div class="form-group row">
+<div class="col-sm-3">
+<button type="submit" class="btn btn-primary">Delete</button>
+</div>
+</div>
+
+ </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+ <div class="container">
+<div class="row">
+<div id="mainContent" class="col-md">
+<div id="mcUpdate">
+<form @submit.prevent = "handleUpdate">
+<h2>Member Certification Edit Form</h2>
+<div class="form-group row">
+<label for="inputMemberID" class="col-sm-2 col-form-label">Member ID</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="inputMemberID" placeholder="Please enter Member ID" v-model="mc.memberID">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputCertificationID" class="col-sm-2 col-form-label">Certification ID</label>
+<div class="col-sm-10">
+<input type="text" class="form-control" id="inputCertificationID" placeholder="Please enter Certification ID" v-model="mc.certificationID">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputExpirationDate" class="col-sm-2 col-form-label">Expiration Date</label>
+<div class="col-sm-10">
+<input type="date" class="form-control" id="inputExpirationDate" placeholder="Please enter Expiration Date" v-model="mc.expDate">
+</div>
+</div>
+
+ <div class="form-group row">
+<label for="inputRenewDate" class="col-sm-2 col-form-label">Renew Date</label>
+<div class="col-sm-10">
+<input type="date" class="form-control" id="inputRenewDate" placeholder="Please enter the Renewal Date" v-model="mc.renewDate">
+</div>
+</div>
+
+ <div class="form-group row">
+<div class="col-sm-3">
+<button type="submit" class="btn btn-primary">Update</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- Tablesort from http://tristen.ca/tablesort/demo/ -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+<script src="js/cert.js"></script>
+<!-- <script>
+new Tablesort(document.getElementById('taskTable'));
+</script> -->
+
+</center>
+</body>
+</html>
