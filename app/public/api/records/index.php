@@ -10,7 +10,6 @@ $sql = 'SELECT * FROM Person';
 $vars = [];
 
 if (isset($_GET['person_id'])) {
-  // This is an example of a parameterized query
   $sql = 'SELECT * FROM Person WHERE person_id = ?';
   $vars = [ $_GET['person_id'] ];
 }

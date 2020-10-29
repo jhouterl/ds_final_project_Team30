@@ -25,6 +25,4 @@ $stmt = $db->prepare(
 
  header('HTTP/1.1 303 See other');
 
- //300 redirect with a git
-
  header('Location: ../certifications/');
