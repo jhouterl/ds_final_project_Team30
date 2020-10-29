@@ -11,42 +11,33 @@ var membersPage = new Vue({
 //    }
 //  },
   methods: {
+    addMember() {
+      fetch('api/records/post.php', {
+        method:'POST',
+        body: JSON.stringify(this.newMember),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+        }
+    })
+      .then( response => response.json() )
+      .then ( json => {membersPage.memberList = json} )
+      .catch ( err => {
+        console.error('WORK TRIAGE ERROR:');
+        console.error(err);
+    })
+    },
     fetchMembers() {
       fetch('api/records/index.php')
       .then(response => response.json())
       .then(json => { membersPage.memberList = json })
     },
 
-//    handleNewMemberForm( evt ) {
-      // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
-
-      // TODO: Validate the data!
-
-  //    fetch('api/records/post.php', {
-  //      method:'POST',
-  //      body: JSON.stringify(this.newMember),
-    //    headers: {
-    //      "Content-Type": "application/json; charset=utf-8"
-    //    }
-  //    })
-  //    .then( response => response.json() )
-  //    .then( json => {
-  //      console.log("Returned from post:", json);
-        // TODO: test a result was returned!
-//        this.memberList.push(json[0]);
-//        this.newMember = this.newMemberData();
-  //    });
-
-    //  console.log("Creating (POSTing)...!");
-  //    console.log(this.newMember);
-//},
-
-    handleDelete() {
-      fetch('api/records/delete.php', {
-        method:'POST',
-        body: JSON.stringify(this.newMember),
-        headers:{
-          "Content-Type": "application/json; charset=utf-8"
+      handleDelete() {
+        fetch('api/records/delete.php', {
+          method:'POST',
+          body: JSON.stringify(this.newMember),
+          headers:{
+            "Content-Type": "application/json; charset=utf-8"
       }
       })
         .then( response => response.json() )
@@ -80,11 +71,11 @@ var membersPage = new Vue({
   created() {
 
   //  this.newMember = this.newMemberData();
-    this.fetchMembers();
-    this.handleReset();
-//    this.handleDelete();
+      this.fetchMembers();
+      this.handleReset();
+
+    }})
 
 function submitMember() {
-  window.location.href = "view_members.html"
-}
-}})
+  window.location.href = "view_members.html";
+  }

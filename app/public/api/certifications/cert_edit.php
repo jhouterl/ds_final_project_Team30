@@ -7,7 +7,7 @@ require 'common.php';
  $db = DbConnection::getConnection();
 
 $stmt = $db->prepare(
- 'UPDATE Certifications SET certification_name=?, certification_agency=?, default_expiration_period=? WHERE certifcation_id = ?'
+ 'UPDATE Certifications SET certification_name=?, certification_agency=?, default_expiration_period=? WHERE certification_id = ?'
  );
 
  $stmt->execute(

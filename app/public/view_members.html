@@ -27,21 +27,19 @@
     <a href="contact.html">CONTACT US</a>
     <a href="reports.html">REPORTS</a>
     <a href="members.html" class="active">MEMBERS</a>
-    <a href="cert.html">CERTIFICATIONS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
-    <a href="login.html">HOME</a>
   </div>
 
   <section id="intro" class="clearfix">
 
     <div class="intro-info">
-      <center><h2><br><br><br>Members<br><br><br></h2></center>
+      <center><h2><br><br><br>View Members<br><br><br></h2></center>
     </div>
 </section>
 
 <section>
 <center>
-  <h3> View Members </h3>
     <div class="row" id="membersPage">
       <div id="mainContent" class="col-md">
     <table id="memberTable" class="table table-bordered">
@@ -56,8 +54,6 @@
           <th scope="col">Email</th>
           <th scope="col">Radio Number</th>
           <th scope="col">Station</th>
-          <th scope="col">View Certifications</th>
-          <th scope="col"> Entry</th>
         </tr>
       </thead>
       <tbody class="members" id="membersPage">
@@ -71,12 +67,6 @@
           <td class="email">{{ member.email }}</td>
           <td class="radio_number">{{ member.radio_number }}</td>
           <td class="phone">{{ member.station_num }}</td>
-          <td class="certifications"> <form action="cert.html">
-          <button type="submit">View Certifications</button>
-           </form></td>
-          <td class="edit_member"> <form action="edit_member.html">
-          <button type="submit">Edit Member</button>
-          </form></td>
 
         <!--  <td> <button class="btn delete" v-on:click="removeEntry(member.person_id)">Delete</button>
         </form></td> -->

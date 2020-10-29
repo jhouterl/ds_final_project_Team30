@@ -36,9 +36,9 @@ handleReset() {
   created() {
     this.handleReset();
 
+  }})
+
 
 function submitMember() {
-  window.location.href = "view_members.html"
-}
-}
-})
+  window.location.href = "certifications.html";
+  }

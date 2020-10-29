@@ -25,9 +25,8 @@
     <a href="contact.html">CONTACT US</a>
     <a href="reports.html" class="active">REPORTS</a>
     <a href="add_member.html">MEMBERS</a>
-    <a href="cert.html">CERTIFICATIONS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
-    <a href="login.html">HOME</a>
   </div>
 
   <section id="intro" class="clearfix">
@@ -36,8 +35,50 @@
       <center><h2><br><br><br>Oconee County Fire Department<br>Oconee, GA<br><br><br></h2></center>
     </div>
 </section>
+<center>
+<div class="row" id="membersPage">
+  <div id="mainContent" class="col-md">
+<table id="memberTable" class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Member ID</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Radio Number</th>
+      <th scope="col">Station</th>
+    </tr>
+  </thead>
+  <tbody class="members" id="membersPage">
+    <tr class="members" v-for="member in memberList">
+      <td class="person_id">{{ member.person_id }}</td>
+      <td class="first_name">{{ member.first_name }} {{ member.last_name }}</td>
+      <td class="position_name">{{ member.position_name }}</td>
+      <td class="gender">{{ member.gender }}</td>
+      <td class="street_address">{{ member.street_address }} {{ member.city }}, {{ member.state }} {{ member.zipcode }}</td>
+      <td class="phone">{{ member.phone }}</td>
+      <td class="email">{{ member.email }}</td>
+      <td class="radio_number">{{ member.radio_number }}</td>
+      <td class="phone">{{ member.station_num }}</td>
+
+    <!--  <td> <button class="btn delete" v-on:click="removeEntry(member.person_id)">Delete</button>
+    </form></td> -->
+    </tr>
+  </tbody>
+</table>
 
 
+</center>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/index.js"></script>
   </body>
   </html>
