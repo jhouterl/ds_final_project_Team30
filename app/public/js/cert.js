@@ -27,7 +27,7 @@ addCert() {
     .then(json => { certApp.certList = json })
 },
 
- handleDelete() {
+ deleteCert() {
    fetch('api/certifications/delete_cert.php', {
      method:'POST',
      body: JSON.stringify(this.certification),

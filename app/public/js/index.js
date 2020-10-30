@@ -32,7 +32,7 @@ var membersPage = new Vue({
       .then(json => { membersPage.memberList = json })
     },
 
-      handleDelete() {
+      deleteMember() {
         fetch('api/records/delete.php', {
           method:'POST',
           body: JSON.stringify(this.newMember),
