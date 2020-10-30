@@ -20,15 +20,6 @@ section {
   width: 100%;
 }
 
-article {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  padding: 1rem;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-
 /* Pattern styles */
 .left-half {
   background-color: #ff9e2c;
@@ -94,21 +85,6 @@ article {
   border-left: 1px solid rgb(77,55,41);
 }
 
-.memberCard {
-  margin: 4px;
-  padding: 4px 8px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  background-color: white;
-}
-.memberCard .birthDate{
-  float: right;
-}
-
-.memberCard .lastName {
-  font-weight:bold;
-}
-
 /* Intro Style Pic */
 #intro {
   width: 100%;
@@ -124,15 +100,15 @@ article {
   font-weight: 500;
 }
 
-#about .about_text {
-  float: right;
+.imgDes {
+  overflow: hidden;
+  align: right;
 }
 
-#about .about_pic {
+.pic img{
   float: left;
+  padding: 14px 16px;
 }
-
-
 
 /** Tablesort css **/
 th[role=columnheader]:not(.no-sort) {
@@ -167,17 +143,4 @@ th[aria-sort]:not(.no-sort):after {
 th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
-}
-
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before {
-bottom: .5em;
 }
