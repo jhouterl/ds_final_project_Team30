@@ -23,10 +23,10 @@ var memberEdit = new Vue({
 
 })
 
-this.handleReset();
+this.handlenewForm();
 
 },
-handleReset() {
+handlenewForm() {
   this.memberList = {
     person_id: "",
     first_name: "",
@@ -50,7 +50,7 @@ handleReset() {
 
  created() {
 
- this.handleReset();
+ this.handlenewForm();
 
 
  }

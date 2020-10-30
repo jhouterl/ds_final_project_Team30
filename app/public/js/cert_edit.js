@@ -20,10 +20,10 @@ var certEdit = new Vue({
       console.error(err);
       })
 
-      this.handleReset();
+      this.handlenewForm();
 },
 
-handleReset() {
+handlenewForm() {
   this.certList = {
     certification_id: "",
     certification_name: "",
@@ -34,7 +34,7 @@ handleReset() {
 
 },
   created() {
-    this.handleReset();
+    this.handlenewForm();
 
   }})
 

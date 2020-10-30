@@ -41,10 +41,10 @@ addCert() {
     console.error('error');
     console.error(err);
   })
-  this.handleReset();
+  this.handlenewForm();
 },
 
- handleReset() {
+ handlenewForm() {
    this.certification = {
      certification_id: "",
      certification_name: "",
@@ -58,7 +58,7 @@ addCert() {
 
  // this.newMember = this.newMemberData();
  this.fetchCertifications();
- this.handleReset();
+ this.handlenewForm();
 // this.handleDelete();
 
   }

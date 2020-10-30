@@ -46,10 +46,10 @@ var membersPage = new Vue({
           console.error('error');
           console.error(err);
     })
-          this.handleReset();
+          this.handlenewForm();
     },
 
-    handleReset() {
+    handlenewForm() {
       this.newMember = {
         person_id: "",
         first_name: "",
@@ -72,7 +72,7 @@ var membersPage = new Vue({
 
   //  this.newMember = this.newMemberData();
       this.fetchMembers();
-      this.handleReset();
+      this.handlenewForm();
 
     }})
 
