@@ -47,7 +47,7 @@
     </div>
   </br>
 
-    <table id="expiredDetail" class="table table-bordered">
+    <table id="expired" class="table table-bordered">
       <thead class="thead-light">
         <tr>
           <th scope="col">First Name</th>
@@ -81,5 +81,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/details.js"></script>
+<script src="js/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('expired'));
+</script>
   </body>
   </html>

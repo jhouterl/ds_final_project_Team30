@@ -41,7 +41,7 @@
 <div class="row">
 <div id="mainContent" class="col-md">
 <div id="MemberCerts">
-<table class="table table-bordered">
+<table id="memberCertTable" class="table table-bordered">
 <thead class="thead-light">
 <tr>
 <th>Member ID</th>
@@ -74,9 +74,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/member_cert.js"></script>
-<!-- <script>
-new Tablesort(document.getElementById('taskTable'));
-</script> -->
+<script src="js/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('memberCertTable'));
+</script>
 
 </center>
 </body>
