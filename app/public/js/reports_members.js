@@ -1,5 +1,5 @@
-var memberDetails = new Vue({
-  el: '#memberDetails',
+var memberFilter = new Vue({
+  el: '#memberFilter',
   data: {
     memberList: [],
     certList:[],
@@ -14,17 +14,18 @@ var memberDetails = new Vue({
   },
   methods: {
     fetchMembers() {
-      fetch('api/details/index.php')
+      fetch('api/details/reports_members.php')
       .then(response => response.json())
       .then(json => { memberDetails.memberList = json })
-    },
-
-    fetchCertifications() {
-      fetch('api/details/cert_index.php')
-      .then(response => response.json())
-      .then(json => { memberDetails.certList = json })
     }
   },
+
+//    fetchCertifications() {
+//      fetch('api/details/cert_index.php')
+//      .then(response => response.json())
+//      .then(json => { memberDetails.certList = json })
+//    }
+//  },
 
 //    fetchMemberContact() {
 //      fetch('api/memberContactFolder/')
@@ -40,7 +41,7 @@ var memberDetails = new Vue({
 //  },
   created() {
     this.fetchMembers();
-    this.fetchCertifications();
+//    this.fetchCertifications();
 //    this.fetchMemberContact();
   }
 });
