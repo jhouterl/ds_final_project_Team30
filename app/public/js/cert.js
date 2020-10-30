@@ -17,7 +17,7 @@ addCert() {
   .then( response => response.json() )
   .then ( json => {certApp.certList = json} )
   .catch ( err => {
-    console.error('WORK TRIAGE ERROR:');
+    console.error('error');
     console.error(err);
 })
 },
@@ -38,7 +38,7 @@ addCert() {
   .then( response => response.json() )
   .then ( json => {certApp.certList = json} )
   .catch ( err => {
-    console.error('WORK TRIAGE ERROR:');
+    console.error('error');
     console.error(err);
   })
   this.handleReset();

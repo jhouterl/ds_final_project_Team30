@@ -15,8 +15,8 @@ var certEdit = new Vue({
       .then( response => response.json() )
       .then ( json => {certApp.certList = json} )
       .catch ( err => {
-      console.log("completed this")
-      console.error('WORK TRIAGE ERROR:');
+      console.log("this.certList")
+      console.error('error');
       console.error(err);
       })
 

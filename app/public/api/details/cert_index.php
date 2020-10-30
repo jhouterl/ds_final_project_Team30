@@ -17,4 +17,3 @@ $json = json_encode($memberList, JSON_PRETTY_PRINT);
 // Step 4: Output
 header('Content-Type: application/json');
 echo $json;
-// test

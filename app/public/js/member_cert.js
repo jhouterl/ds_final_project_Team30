@@ -13,6 +13,5 @@ var MemberCerts = new Vue({
 
   created() {
     this.fetchMemberCertification();
-//    this.handleReset();
   }
 })

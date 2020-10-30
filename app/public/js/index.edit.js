@@ -17,8 +17,8 @@ var memberEdit = new Vue({
   .then( response => response.json() )
   .then ( json => {membersPage.memberList = json} )
   .catch ( err => {
-    console.log("completed this")
-    console.error('WORK TRIAGE ERROR:');
+    console.log("this.memberList")
+    console.error('error');
     console.error(err);
 
 })
