@@ -15,8 +15,39 @@ a {
 h1,h2 {
   color: #800000;
 }
-.container {
+
+section {
+  width: 100%;
+}
+
+article {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  padding: 1rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+/* Pattern styles */
+.left-half {
+  background-color: #ff9e2c;
+  float: left;
+  width: 50%;
+}
+.right-half {
+  background-color: #b6701e;
+  float: left;
+  width: 50%;
+}
+
+.container1 {
   background-image: url('img\fire_background.png');
+}
+
+.button {
+  background-color: #800000;
+  color: white;
 }
 
 .logo img {

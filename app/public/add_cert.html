@@ -23,7 +23,7 @@
 
   <div class="topnav">
   <a href="contact.html">CONTACT US</a>
-  <a href="reports.html">REPORTS</a>
+  <a href="reports_expired.html">REPORTS</a>
   <a href="members.html">MEMBERS</a>
   <a href="cert_main.html" class="active">CERTIFICATIONS</a>
   <a href="about_us.html">ABOUT US</a>
@@ -40,7 +40,7 @@
 <div class="row" id="certApp">
 <div id="mainContent" class="col-md">
 <div class="form-group">
-  <form v-on:submit.prevent = "addCert">
+  <form v-on:submit.prevent = "addCert()">
     <h3>Add Certification</h3>
     <div class="form-group row">
       <label for="certification_name" class="col-sm-2 col-form-label">Certification Name:</label>

@@ -22,8 +22,7 @@
 </div>
 
  <div class="topnav">
-<a href="contact.html">CONTACT US</a>
-<a href="reports.html">REPORTS</a>
+<a href="reports_expired.html">REPORTS</a>
 <a href="members.html">MEMBERS</a>
 <a href="cert_main.html" class="active">CERTIFICATIONS</a>
 <a href="about_us.html">ABOUT US</a>
@@ -41,11 +40,13 @@
 <div class="row">
 <div id="mainContent" class="col-md">
 <div id="MemberCerts">
-<table class="table table-sm table-hover">
+<table class="table table-sm">
 <thead class="thead-dark">
 <tr>
 <th>Member ID</th>
+<th>Member Name</th>
 <th>Certification ID </th>
+<th>Certification Name</th>
 <th>Earned Date</th>
 <th>Expiration Date</th>
 </tr>
@@ -53,87 +54,14 @@
 <tbody>
 <tr v-for='cert in memberCertList'>
 <td>{{cert.person_id}}</td>
+<td>{{cert.first_name}} {{cert.last_name}}</td>
 <td>{{cert.certification_id}}</td>
+<td>{{cert.certification_name}}</td>
 <td>{{cert.earned_date}}</td>
 <td>{{cert.expiration_date}}</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-
-<div class="form-group row">
-<form @submit.prevent="handleDelete()">
-<h2>Delete Certification</h2>
-<div class="form-group row">
-<label for="inputFirstName" class="col-sm-10 col-form-label">Member ID</label>
-<div class="col-sm-10">
-<input type="number" class="form-control" id="inputMemberID" placeholder="Please enter Member ID" v-model="mc.memberID">
-</div>
-</div>
-
- <div class="form-group row">
-<label for="inputFirstName" class="col-sm-10 col-form-label">Certification ID</label>
-<div class="col-sm-10">
-<input type="number" class="form-control" id="inputCertificationID" placeholder="Please enter Certification ID" v-model="mc.certificationID">
-</div>
-</div>
-
- <div class="form-group row">
-<div class="col-sm-3">
-<button type="submit" class="btn btn-primary">Delete</button>
-</div>
-</div>
-
- </form>
-</div>
-</div>
-</div>
-</div>
-</div>
-
- <div class="container">
-<div class="row">
-<div id="mainContent" class="col-md">
-<div id="mcUpdate">
-<form @submit.prevent = "handleUpdate">
-<h2>Member Certification Edit Form</h2>
-<div class="form-group row">
-<label for="inputMemberID" class="col-sm-2 col-form-label">Member ID</label>
-<div class="col-sm-10">
-<input type="text" class="form-control" id="inputMemberID" placeholder="Please enter Member ID" v-model="mc.memberID">
-</div>
-</div>
-
- <div class="form-group row">
-<label for="inputCertificationID" class="col-sm-2 col-form-label">Certification ID</label>
-<div class="col-sm-10">
-<input type="text" class="form-control" id="inputCertificationID" placeholder="Please enter Certification ID" v-model="mc.certificationID">
-</div>
-</div>
-
- <div class="form-group row">
-<label for="inputExpirationDate" class="col-sm-2 col-form-label">Expiration Date</label>
-<div class="col-sm-10">
-<input type="date" class="form-control" id="inputExpirationDate" placeholder="Please enter Expiration Date" v-model="mc.expDate">
-</div>
-</div>
-
- <div class="form-group row">
-<label for="inputRenewDate" class="col-sm-2 col-form-label">Renew Date</label>
-<div class="col-sm-10">
-<input type="date" class="form-control" id="inputRenewDate" placeholder="Please enter the Renewal Date" v-model="mc.renewDate">
-</div>
-</div>
-
- <div class="form-group row">
-<div class="col-sm-3">
-<button type="submit" class="btn btn-primary">Update</button>
-</div>
-</div>
-</form>
-</div>
 </div>
 </div>
 </div>
