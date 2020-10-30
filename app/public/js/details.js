@@ -3,14 +3,9 @@ var memberDetails = new Vue({
   data: {
     memberList: [],
     certList:[],
-  //  memberContact:[],
-    filter: {
-      fn: '',
-      cert:'',
-      sn:'',
-      rn:''
+    choose: {
+      certification:''
     }
-    //options: 'Mark'
   },
   methods: {
     fetchMembers() {
@@ -26,21 +21,8 @@ var memberDetails = new Vue({
     }
   },
 
-//    fetchMemberContact() {
-//      fetch('api/memberContactFolder/')
-//      .then(response => response.json())
-//      .then(json => { memberDetailApp.memberContact = json })
-//    },
-//    displayWaitingLocalDate(d) {
-//      return moment.utc(d).local().format("YYYY MMM Do");
-//    },
-//    displayWaitingSince(d) {
-  //    return moment.utc(d).local().fromNow();
-//    }
-//  },
   created() {
     this.fetchMembers();
     this.fetchCertifications();
-//    this.fetchMemberContact();
   }
 });

@@ -35,16 +35,16 @@
     </div>
 </section>
 <center>
-  <div class="container" id = "memberDetails">
+  <div class="container" id ="memberDetails">
 
-    <div class="filter">
-      <h5>Filter by Certification</h5>
-      <select v-model="filter.cert">
-        <option value="">(all)</option>
+    <div class="choose">
+      <h4>Filter by Certification</h4>
+      <select v-model="choose.certification">
+        <option value="">All</option>
         <option v-for='member in memberList'>{{member.certification_name}}</option>
       </select>
-
     </div>
+  </br>
 
     <table id="expiredDetail" class="table">
       <thead class="thead-dark">
@@ -57,7 +57,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for='member in memberList' v-if="filter.cert=='' || filter.cert == member.certification_name">
+
+      <!--Different way to use v-if than computed function
+        https://stackoverflow.com/questions/45906659/a-complex-condition-inside-v-if/45907070 -->
+        <tr v-for='member in memberList' v-if="choose.certification=='' || choose.certification == member.certification_name">
           <td>{{ member.first_name }}</td>
           <td>{{ member.last_name }}</td>
           <td>{{ member.certification_name }}</td>
