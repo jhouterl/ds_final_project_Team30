@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- citing CSS from my senior capstone project
+    <link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
+
+    <title>Expired Member Certifications</title>
+  </head>
+  <body>
+
+    <div class="logo float-left">
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="login.html" class="scrollto"><img src="img/logo.png" alt="Responsive image" class="img-fluid"></a>
+  </div>
+
+    <div class="topnav">
+    <a href="reports.html" class="active">REPORTS</a>
+    <a href="members.html">MEMBERS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
+    <a href="about_us.html">ABOUT US</a>
+  </div>
+
+  <section id="intro" class="clearfix">
+
+    <div class="intro-info">
+      <center><h2><br><br><br>Reports<br>Members with Expired Certifications<br><br><br></h2></center>
+    </div>
+</section>
+<center>
+  <div class="container" id ="memberDetails">
+
+    <div class="choose">
+      <h4>Filter by Certification</h4>
+      <select v-model="choose.certification">
+        <option value="">All</option>
+        <option v-for='member in memberList'>{{member.certification_name}}</option>
+      </select>
+    </div>
+  </br>
+
+    <table id="expired" class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Title</th>
+          <th scope="col">Agency</th>
+          <th scope="col">Expired Date</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      <!--Different way to use v-if than computed function
+        https://stackoverflow.com/questions/45906659/a-complex-condition-inside-v-if/45907070 -->
+        <tr v-for='member in memberList' v-if="choose.certification=='' || choose.certification == member.certification_name">
+          <td>{{ member.first_name }}</td>
+          <td>{{ member.last_name }}</td>
+          <td>{{ member.certification_name }}</td>
+          <td>{{ member.certification_agency }}</td>
+          <td>{{member.expiration_date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</center>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/details.js"></script>
+<script src="js/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('expired'));
+</script>
+  </body>
+  </html>

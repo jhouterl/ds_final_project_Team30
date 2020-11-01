@@ -1,7 +1,7 @@
 <?php
 
 require 'common.php';
-//Step 0; Validate data
+
 $db = DbConnection::getConnection();
 
 $stmt = $db->prepare(
@@ -28,5 +28,4 @@ $_POST['person_id']
 
 //Step 4: Output
 header('HTTP/1.1 303 See other');
-//300 redirect with a git
 header('Location: ../records/');

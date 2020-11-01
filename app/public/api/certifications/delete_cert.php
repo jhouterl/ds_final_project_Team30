@@ -4,11 +4,7 @@
 
 require 'common.php';
 
-
-
-// Step 1: Get a datase connection from our helper class
-
- $db = DbConnection::getConnection();
+$db = DbConnection::getConnection();
 
 
 
@@ -19,10 +15,6 @@ require 'common.php';
  'DELETE FROM Certifications WHERE certification_id = ?'
 
  );
-
-
-
-
 
  $stmt->execute(
 

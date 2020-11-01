@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
+
 
     <title>User Information</title>
   </head>
@@ -22,26 +24,30 @@
   </div>
 
     <div class="topnav">
-    <a href="contact.html">CONTACT US</a>
     <a href="reports.html">REPORTS</a>
-    <a href="members.html">MEMBERS</a>
-    <a href="cert.html">CERTIFICATIONS</a>
+    <a href="members.html" class="active">MEMBERS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
-    <a href="login.html">HOME</a>
   </div>
 
   <section id="intro" class="clearfix">
 
     <div class="intro-info">
-      <center><h2><br><br><br>View Members<br><br><br></h2></center>
+      <center><h2><br><br><br>View, Delete, and Edit Members<br><br><br></h2></center>
     </div>
 </section>
 
+<section>
 <center>
-<div id="membersPage">
+  <!-- Form setup
+   https://getbootstrap.com/docs/4.3/components/forms/
+  https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+  <div class="container">
+      <div class="col-md">
     <table id="memberTable" class="table table-bordered">
-      <thead>
+      <thead class="thead-light">
         <tr>
+          <th scope="col">Member ID</th>
           <th scope="col">Full Name</th>
           <th scope="col">Position</th>
           <th scope="col">Gender</th>
@@ -50,13 +56,11 @@
           <th scope="col">Email</th>
           <th scope="col">Radio Number</th>
           <th scope="col">Station</th>
-          <th scope="col">View Certifications</th>
-          <th scope="col">Edit Entry</th>
-          <th scope="col">Delete Entry</th>
         </tr>
       </thead>
       <tbody class="members" id="membersPage">
-        <tr class="members" v-for="member in memberList" v-on:click="activeMember = member">
+        <tr class="members" v-for="member in memberList">
+          <td class="person_id">{{ member.person_id }}</td>
           <td class="first_name">{{ member.first_name }} {{ member.last_name }}</td>
           <td class="position_name">{{ member.position_name }}</td>
           <td class="gender">{{ member.gender }}</td>
@@ -65,24 +69,41 @@
           <td class="email">{{ member.email }}</td>
           <td class="radio_number">{{ member.radio_number }}</td>
           <td class="phone">{{ member.station_num }}</td>
-          <td class="certifications"> <form action="cert.html">
-          <button type="submit">View Certifications</button>
-           </form></td>
-          <td class="edit_member"> <form action="edit_member.html">
-          <button type="submit">Edit Member</button>
-          </form></td>
-        <div class="container-fluid" id="membersPage">
-          <td class="certifications">
-              <div class="row" id="memberList">
-                <form method="delete" v-on:submit.prevent="handleNewMemberForm">
-          <button type="submit" id="delete" class="btn btn-primary">Add Member</button>
-          </form></td>
-        </div> </div>
+
+        <!--  <td> <button class="btn delete" v-on:click="removeEntry(member.person_id)">Delete</button>
+        </form></td> -->
         </tr>
       </tbody>
     </table>
-  </div>
+</br>
+    <div class="form-group" row>
+
+
+    <form v-on:submit.prevent="deleteMember()">
+    <h3>Want to Delete a Member?</h3>
+    <div class="form-group">
+    <div class="col-sm-10">
+    <input type="number" class="form-control" id="person_id" placeholder="Enter Member ID Number" v-model="newMember.person_id">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-dark">Delete</button>
+              </div>
+              </div>
+              </form>
+            </div>
+</br>
+<form action="edit_member.html">
+<h3>Want to Edit Member Info?</h3>
+<button type="submit" class="btn btn-dark">Click here!</button>
+</form> </br>
+</div>
+</div>
+</div>
 </center>
+</section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
@@ -91,5 +112,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/tablesort.min.js"></script>
+    <script>
+      new Tablesort(document.getElementById('memberTable'));
+    </script>
   </body>
 </html>

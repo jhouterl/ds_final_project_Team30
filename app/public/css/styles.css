@@ -15,8 +15,30 @@ a {
 h1,h2 {
   color: #800000;
 }
-.container {
+
+section {
+  width: 100%;
+}
+
+/* Pattern styles */
+.left-half {
+  background-color: #ff9e2c;
+  float: left;
+  width: 50%;
+}
+.right-half {
+  background-color: #b6701e;
+  float: left;
+  width: 50%;
+}
+
+.container1 {
   background-image: url('img\fire_background.png');
+}
+
+.button {
+  background-color: #800000;
+  color: white;
 }
 
 .logo img {
@@ -63,21 +85,6 @@ h1,h2 {
   border-left: 1px solid rgb(77,55,41);
 }
 
-.memberCard {
-  margin: 4px;
-  padding: 4px 8px;
-  border: 1px solid #999;
-  border-radius: 5px;
-  background-color: white;
-}
-.memberCard .birthDate{
-  float: right;
-}
-
-.memberCard .lastName {
-  font-weight:bold;
-}
-
 /* Intro Style Pic */
 #intro {
   width: 100%;
@@ -93,15 +100,15 @@ h1,h2 {
   font-weight: 500;
 }
 
-#about .about_text {
-  float: right;
+.imgDes {
+  overflow: hidden;
+  align: right;
 }
 
-#about .about_pic {
+.pic img{
   float: left;
+  padding: 14px 16px;
 }
-
-
 
 /** Tablesort css **/
 th[role=columnheader]:not(.no-sort) {

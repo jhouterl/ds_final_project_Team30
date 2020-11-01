@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- citing CSS from my senior capstone project
+    <link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
+
+    <title>Certifications</title>
+  </head>
+  <body>
+
+    <div class="logo float-left">
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="login.html" class="scrollto"><img src="img/logo.png" alt="Responsive image" class="img-fluid"></a>
+  </div>
+
+  <div class="topnav">
+  <a href="contact.html">CONTACT US</a>
+  <a href="reports.html">REPORTS</a>
+  <a href="members.html">MEMBERS</a>
+  <a href="cert_main.html" class="active">CERTIFICATIONS</a>
+  <a href="about_us.html">ABOUT US</a>
+</div>
+
+  <section id="intro" class="clearfix">
+
+    <div class="intro-info">
+      <center><h2><br><br><br>Add Certification<br><br><br></h2></center>
+    </div>
+</section>
+<center>
+
+<!-- Form setup
+ https://getbootstrap.com/docs/4.3/components/forms/
+https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+<div class="row" id="certApp">
+<div class="col-md">
+<div class="form-group">
+  <form v-on:submit.prevent = "addCert()">
+    <div class="form-group row">
+      <label for="certification_name" class="col-sm-2 col-form-label">Certification Name:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="certification_name" placeholder="Certification Name" v-model="certification.certification_name">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="certification_agency" class="col-sm-2 col-form-label">Certification Agency:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="certification_agency" placeholder="Certification Agency" v-model="certification.certification_agency">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="default_expiration_period" class="col-sm-2 col-form-label">Expiration Period:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="default_expiration_period" placeholder="Expiration Period" v-model="certification.default_expiration_period">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-dark" onclick="submitCert()">Add</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/cert.js"></script>
+<!-- <script>
+  new Tablesort(document.getElementById('taskTable'));
+</script> -->
+
+</center>
+  </body>
+  </html>

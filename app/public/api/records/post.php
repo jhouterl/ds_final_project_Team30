@@ -2,16 +2,11 @@
 
 require 'common.php';
 
-// Step 0: Validate the incoming data
-// This code doesn't do that, but should ...
-// For example, if the date is empty or bad, this insert fails.
-
 
 // Step 1: Get a datase connection from our helper class
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-// Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
   'INSERT INTO Person (first_name, last_name, gender, street_address, city, state, zipcode, phone, radio_number, station_num, position_name, email)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'

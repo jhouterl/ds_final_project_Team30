@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
     <!-- my custom CSS goes here -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
 
-    <title>User Information</title>
+    <title>Members</title>
   </head>
   <body>
 
@@ -22,86 +23,125 @@
   </div>
 
     <div class="topnav">
-    <a href="contact.html">CONTACT US</a>
     <a href="reports.html">REPORTS</a>
-    <a href="members.html">MEMBERS</a>
-    <a href="cert.html">CERTIFICATIONS</a>
+    <a href="members.html" class="active">MEMBERS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
-    <a href="login.html">HOME</a>
   </div>
 
   <section id="intro" class="clearfix">
 
     <div class="intro-info">
-      <center><h2><br><br><br>Add Members<br><br><br></h2></center>
+      <center><h2><br><br><br>Add New Member<br><br><br></h2></center>
     </div>
 </section>
 
-<div class="container-fluid" id="membersPage">
-  <div class="row" id="memberList">
-    <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-    <form method="post" v-on:submit.prevent="handleNewMemberForm">
-
+<!-- Form setup
+ https://getbootstrap.com/docs/4.3/components/forms/
+https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+<center>
+<div class="container">
+<div class="row" id="membersPage">
+<div class="col-md">
         <div class="form-group">
-        <label for="first_name">First Name: </label>
-        <input type="text" v-model="newMemberForm.first_name" class="form-control" id="first_name">
-      </div>
-      <div class="form-group">
-        <label for="last_name">Last Name: </label>
-        <input type="text" v-model="newMemberForm.last_name" class="form-control" id="last_name">
-      </div>
-      <div class="form-group">
-        <label for="gender">Gender: </label>
-        <input type="text" v-model="newMemberForm.gender" class="form-control" id="gender">
-      </div>
-      <div class="form-group">
-        <label for="street_address">Street: </label>
-        <input type="text" v-model="newMemberForm.street_address" class="form-control" id="street_address">
-      </div>
-      <div class="form-group">
-        <label for="city">City: </label>
-        <input type="text" v-model="newMemberForm.city" class="form-control" id="city">
-      </div>
-      <div class="form-group">
-        <label for="state">State: </label>
-        <input type="text" v-model="newMemberForm.state" class="form-control" id="state">
-      </div>
-      <div class="form-group">
-        <label for="zipcode">Zip Code: </label>
-        <input type="text" v-model="newMemberForm.zipcode" class="form-control" id="zipcode">
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone: </label>
-        <input type="text" v-model="newMemberForm.phone" class="form-control" id="phone">
-      </div>
-      <div class="form-group">
-        <label for="phone">Email: </label>
-        <input type="text" v-model="newMemberForm.email" class="form-control" id="email">
-      </div>
-      <div class="form-group">
-        <label for="radio_number">Radio Number: </label>
-        <input type="text" v-model="newMemberForm.radio_number" class="form-control" id="radio_number">
-      </div>
-      <div class="form-group">
-        <label for="station_num">Station Number: </label>
-        <input type="text" v-model="newMemberForm.station_num" class="form-control" id="station_num">
-      </div>
-      <div class="form-group">
-        <label for="position_name">Position: </label>
-        <input type="text" v-model="newMemberForm.position_name" class="form-control" id="position_name">
-      </div>
+          <form v-on:submit.prevent = "addMember()">
+            <div class="form-group row">
+              <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="first_name" v-model="newMember.first_name">
+              </div>
+            </div>
 
-      <button type="submit" id="submit" class="btn btn-primary" onclick="submitMember()">Add Member</button>
+            <div class="form-group row">
+              <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="last_name" v-model="newMember.last_name">
+              </div>
+            </div>
 
-      </form>
+            <div class="form-group row">
+              <label for="gender" class="col-sm-2 col-form-label">Gender:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="gender" v-model="newMember.gender">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="position_name" class="col-sm-2 col-form-label">Position:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="gender" v-model="newMember.position_name">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="street_address" class="col-sm-2 col-form-label">Address:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="gender" v-model="newMember.street_address">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="city" class="col-sm-2 col-form-label">City:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="city" v-model="newMember.city">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="state" class="col-sm-2 col-form-label">State:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="state" v-model="newMember.state">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="zipcode" class="col-sm-2 col-form-label">Zip Code:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="zipcode" v-model="newMember.zipcode">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="phone" class="col-sm-2 col-form-label">Phone Number:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="phone" v-model="newMember.phone">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">Email:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="email" v-model="newMember.email">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="radio_number" class="col-sm-2 col-form-label">Radio Number:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="radio_number" v-model="newMember.radio_number">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="station_num" class="col-sm-2 col-form-label">Station Number:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="station_num" v-model="newMember.station_num">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-2">
+                <button type="submit" id="submit" class="btn btn-dark" onclick="submitMember()">Add Member</button>
+              </div>
+            </div>
+          </form>
+        </div>
 
     </div>
+  </div>
+</div>
 
-      </div>
-    </div>
-    <!-- END content -->
-
-    <!-- Footer? Insert here -->
+</center>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -111,5 +151,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>
+
   </body>
 </html>

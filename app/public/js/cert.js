@@ -7,49 +7,49 @@ certification: {}
 
  methods: {
 addCert() {
-fetch('api/certifications/add_cert.php', {
-method:'POST',
-body: JSON.stringify(this.certification),
-headers:{
-"Content-Type": "application/json; charset=utf-8"
-}
+  fetch('api/certifications/add_cert.php', {
+    method:'POST',
+    body: JSON.stringify(this.certification),
+    headers:{
+      "Content-Type": "application/json; charset=utf-8"
+    }
 })
-.then( response => response.json() )
-.then ( json => {certApp.certList = json} )
-.catch ( err => {
-console.error('WORK TRIAGE ERROR:');
-console.error(err);
+  .then( response => response.json() )
+  .then ( json => {certApp.certList = json} )
+  .catch ( err => {
+    console.error('error');
+    console.error(err);
 })
 },
-fetchCertifications() {
-fetch('api/certifications/index.php')
-.then(response => response.json())
-.then(json => { certApp.certList = json })
-},
-
- handleDelete() {
-fetch('api/certifications/delete_cert.php', {
-method:'POST',
-body: JSON.stringify(this.certification),
-headers:{
-"Content-Type": "application/json; charset=utf-8"
-}
-})
-.then( response => response.json() )
-.then ( json => {certApp.certList = json} )
-.catch ( err => {
-console.error('WORK TRIAGE ERROR:');
-console.error(err);
-})
-this.handleReset();
+  fetchCertifications() {
+    fetch('api/certifications/index.php')
+    .then(response => response.json())
+    .then(json => { certApp.certList = json })
 },
 
- handleReset() {
-this.certification = {
-certification_id: "",
-certification_name: "",
-certification_agency: "",
-default_expiration_period: ""
+ deleteCert() {
+   fetch('api/certifications/delete_cert.php', {
+     method:'POST',
+     body: JSON.stringify(this.certification),
+     headers:{
+       "Content-Type": "application/json; charset=utf-8"
+     }
+})
+  .then( response => response.json() )
+  .then ( json => {certApp.certList = json} )
+  .catch ( err => {
+    console.error('error');
+    console.error(err);
+  })
+  this.handlenewForm();
+},
+
+ handlenewForm() {
+   this.certification = {
+     certification_id: "",
+     certification_name: "",
+     certification_agency: "",
+     default_expiration_period: ""
 }
 }
 },
@@ -57,11 +57,13 @@ default_expiration_period: ""
  created() {
 
  // this.newMember = this.newMemberData();
-this.fetchCertifications();
-this.handleReset();
+ this.fetchCertifications();
+ this.handlenewForm();
 // this.handleDelete();
 
-function submitMember() {
-window.location.href = "view_members.html"
-}
-}})
+  }
+});
+
+function submitCert() {
+  window.location.href = "certifications.html";
+  }

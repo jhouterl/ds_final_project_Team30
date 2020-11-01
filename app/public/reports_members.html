@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:;base64,=">
 
-    <title>About Us</title>
+    <title>Expired Member Certifications</title>
   </head>
   <body>
 
@@ -22,42 +22,56 @@
     <a href="login.html" class="scrollto"><img src="img/logo.png" alt="Responsive image" class="img-fluid"></a>
   </div>
 
-  <div class="topnav">
-  <a href="reports.html">REPORTS</a>
-  <a href="members.html">MEMBERS</a>
-  <a href="cert_main.html">CERTIFICATIONS</a>
-  <a href="about_us.html" class="active">ABOUT US</a>
-</div>
+    <div class="topnav">
+    <a href="reports.html" class="active">REPORTS</a>
+    <a href="members.html">MEMBERS</a>
+    <a href="cert_main.html">CERTIFICATIONS</a>
+    <a href="about_us.html">ABOUT US</a>
+  </div>
 
   <section id="intro" class="clearfix">
 
     <div class="intro-info">
-      <center><h2><br><br><br>Oconee County Fire Department<br>Oconee, GA<br><br><br></h2></center>
+      <center><h2><br><br><br>Reports<br>Members by Station and Radio Number<br><br><br></h2></center>
     </div>
 </section>
+<center>
 
-<div class="container">
-  <div class="pic">
-  <img src="img/people.png">
-</div>
-  <div class="imgDes">
-  </br>
-  <h3><b>About Us</h3></b>
-  <p>Oconee County Fire Rescue (OCFR) is a mostly volunteer organization located in Ononee County, GA.
-  In order to remain active, our fire fighters and rescue personnel must maintain various certifications, many of which expire after a few years.
-This website tracks and displays current OCFR members, their certifications, as well as their contact information.</p>
-  </div>
-</div>
-
-
-
+        <div class="container">
+        <center>
+          <div id="memberFilter">
+          <table id="taskTable" class="table table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Member Name</th>
+                <th scope="col">Station Number</th>
+                <th scope="col">Radio Number</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="member in memberList">
+                <td>{{ member.first_name }} {{member.last_name}}</td>
+                <td>{{ member.station_num }}</td>
+                <td>{{ member.radio_number }}</td>
+                <td>{{ member.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </center>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-
+<script src="js/reports_members.js"></script>
+<script src="js/tablesort.min.js"></script>
+<script>
+  new Tablesort(document.getElementById('taskTable'));
+</script>
   </body>
   </html>

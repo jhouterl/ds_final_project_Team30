@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- citing CSS from my senior capstone project
+    <link rel="stylesheet" href="https://github.iu.edu/INFO-Capstone-2020/team-01/blob/master/app/book_appointment.php"> -->
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:;base64,=">
+
+    <title>Certifications</title>
+  </head>
+  <body>
+
+    <div class="logo float-left">
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="login.html" class="scrollto"><img src="img/logo.png" alt="Responsive image" class="img-fluid"></a>
+  </div>
+
+    <div class="topnav">
+    <a href="reports.html">REPORTS</a>
+    <a href="members.html">MEMBERS</a>
+    <a href="cert_main.html" class="active">CERTIFICATIONS</a>
+    <a href="about_us.html">ABOUT US</a>
+  </div>
+
+  <section id="intro" class="clearfix">
+
+    <div class="intro-info">
+      <center><h2><br><br><br>View, Delete, & Edit Certifications<br><br><br></h2></center>
+    </div>
+</section>
+<!-- Form setup
+ https://getbootstrap.com/docs/4.3/components/forms/
+https://www.w3schools.com/bootstrap/bootstrap_grid_examples.asp -->
+<center>
+  <div class="container">
+    <div class="row">
+      <div class="col-md">
+        <div id="Cert">
+<div class="row" id="certApp">
+<div class="col-md">
+<table id="certTable" class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Certification ID</th>
+      <th>Certification Name</th>
+      <th>Certification Agency</th>
+      <th>Expiration Period (Years)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for='cert in certList'>
+      <td>{{cert.certification_id}}</td>
+      <td>{{cert.certification_name}}</td>
+      <td>{{cert.certification_agency}}</td>
+      <td>{{cert.default_expiration_period}}</td>
+  </tr>
+  </tbody>
+</table>
+
+</br>
+    <div class="form-group" row>
+
+
+    <form v-on:submit.prevent="deleteCert()">
+    <h3>Want to Delete a Certification?</h3>
+    <div class="form-group">
+    <div class="col-sm-10">
+    <input type="number" class="form-control" id="certification_id" placeholder="Enter Certification ID Number" v-model="certification.certification_id">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-dark">Delete</button>
+              </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+</br>
+
+<form action="edit_cert.html">
+<h3>Want to Edit a Certification?</h3>
+<button type="submit" class="btn btn-dark">Click here!</button>
+</form> </br>
+</div>
+</div>
+</div>
+</div>
+
+
+  <!-- Tablesort from http://tristen.ca/tablesort/demo/ -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/cert.js"></script>
+  <script src="js/tablesort.min.js"></script>
+  <script>
+    new Tablesort(document.getElementById('certTable'));
+  </script>
+
+</center>
+    </body>
+    </html>

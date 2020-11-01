@@ -1,21 +1,13 @@
 <?php
 
 require 'common.php';
-
-// Step 1: Get a datase connection from our helper class
+// Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM Person';
-$vars = [];
+$stmt = $db->prepare('SELECT * FROM Certifications');
+$stmt->execute();
 
-if (isset($_GET['person_id'])) {
-  $sql = 'SELECT * FROM Person WHERE person_id = ?';
-  $vars = [ $_GET['person_id'] ];
-}
-
-$stmt = $db->prepare($sql);
-$stmt->execute($vars);
 
 $memberList = $stmt->fetchAll();
 
