@@ -37,14 +37,21 @@
 </section>
 
 <center>
-<div class="container">
-<div class="row">
-<div id="mainContent" class="col-md">
-<div id="MemberCerts">
+
+  <div class="container" id ="memberCerts">
+    <div class="col-md">
+
+    <div class="choose">
+      <h4>Filter by Member</h4>
+      <select v-model="choose.member">
+        <option value="">All</option>
+        <option v-for='m in memberCertList'>{{m.first_name}} {{m.last_name}}</option>
+      </select>
+    </div>
+  </br>
 <table id="memberCertTable" class="table table-bordered">
 <thead class="thead-light">
 <tr>
-<th>Member ID</th>
 <th>Member Name</th>
 <th>Certification ID </th>
 <th>Certification Name</th>
@@ -53,8 +60,7 @@
 </tr>
 </thead>
 <tbody>
-<tr v-for='cert in memberCertList'>
-<td>{{cert.person_id}}</td>
+<tr v-for='cert in member_certification' v-if="choose.member=='' || choose.member == (cert.first_name + '' + cert.last_name)">
 <td>{{cert.first_name}} {{cert.last_name}}</td>
 <td>{{cert.certification_id}}</td>
 <td>{{cert.certification_name}}</td>
@@ -74,6 +80,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="js/member_cert.js"></script>
+<!-- <script src="js/details.js"></script> -->
 <script src="js/tablesort.min.js"></script>
 <script>
   new Tablesort(document.getElementById('memberCertTable'));
