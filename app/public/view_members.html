@@ -24,7 +24,7 @@
     <div class="topnav">
     <a href="contact.html">CONTACT US</a>
     <a href="reports.html">REPORTS</a>
-    <a href="add_member.html" class="active">MEMBERS</a>
+    <a href="members.html">MEMBERS</a>
     <a href="cert.html">CERTIFICATIONS</a>
     <a href="about_us.html">ABOUT US</a>
     <a href="login.html">HOME</a>
@@ -33,81 +33,56 @@
   <section id="intro" class="clearfix">
 
     <div class="intro-info">
-      <center><h2><br><br><br>Add Members<br><br><br></h2></center>
+      <center><h2><br><br><br>View Members<br><br><br></h2></center>
     </div>
 </section>
 
-<div class="container-fluid">
-  <div class="row" id="membersPage">
-    <div id="cardPaneLeft" class="col cardPane cardPaneLeft">
-
-      <h3>Members</h3>
-        <div class="memberCard" v-for="member in memberList" v-on:click="activeMember = member">
-          Full Name: <span class="first_name">{{ member.first_name }}</span> <span clas="last_name">{{ member.last_name }}</span>
-          <br>
-          Position: <span class="position_name">{{ member.position_name }}</span>
-          <br>
-          Gender: <span class="gender">{{ member.gender }}</span>
-          <br>
-          Address: <span class="street_address">{{ member.street_address }}</span> <span clas="city">{{ member.city }}</span>, <span clas="state">{{ member.state }}</span> <span clas="zipcode">{{ member.zipcode }}</span>
-          <br>
-          Phone: <span class="phone">{{ member.phone }}</span>
-          <br>
-          Email: <span class="position_name">{{ member.email }}</span>
-          <br>
-          Radio Number: <span class="radio_number">{{ member.radio_number }}</span>
-          <br>
-          Station: <span class="station_num">{{ member.station_num }}</span>
-          </div>
-    </div>
-
-    <div class="col-6">
-      <h1>New Visit</h1>
-      <form v-on:submit.prevent="handleTriageForm">
-     <div class="form-group">
-       <label for="ptName">Patient Name</label>
-       <input class="form-control" id="ptName" v-bind:value="activePtName" readonly>
-
-     </div>
-
-   <div class="form-group">
-     <label for="visitDate">Visit Date</label>
-     <input type="text" class="form-control" id="visitDate" v-model="triageForm.visitDate" placeholder="">
-   </div>
-
-   <div class="form-group">
-     <label for="visitPriority">Priority</label>
-     <select class="form-control" id="visitPriority" v-model="triageForm.priority">
-       <option value="high">Critical</option>
-       <option value="medium">Urgent</option>
-       <option value="low">Non-urgent</option>
-     </select>
-   </div>
-   <div class="form-group">
-     <label for="visitSymptoms">Patient Symptoms</label>
-     <textarea class="form-control" id="visitSymptoms" rows="5" v-model="triageForm.visitDescription"></textarea>
-   </div>
-   <button type="submit" class="btn btn-primary">Submit</button>
-
- </form>
- </div>
- <div class="col cardPane cardPaneRight">
-   <h3>Waiting patients</h3>
-   <div v-for="visit in visitList" v-bind:class="'patientCard ' + priorityClass(visit.priority)" v-bind:data-patient_guid="visit.patientGuid" :data-visit_id="visit.visitId">
-     (<span class="lastName">{{ visit.sexAtBirth }}</span>
-     <span class="lastName">{{ age(visit.dob) }}</span>)
-     <span class="lastName">{{ visit.lastName }}</span>,
-     <span clas="firstName">{{ visit.firstName }}</span><br />
-     <span class="text-right">Arrived {{ dateSince(visit.visitDateUtc) }}</span>
-   </div>
-
- </div>
-</div>
-</div>
-
-
-        </div>
-      </div>
+<center>
+<div id="membersPage">
+    <table id="memberTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Full Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Email</th>
+          <th scope="col">Radio Number</th>
+          <th scope="col">Station</th>
+          <th scope="col">View Certifications</th>
+          <th scope="col">Edit Entry</th>
+          <th scope="col">Delete Entry</th>
+        </tr>
+      </thead>
+      <tbody class="members" id="membersPage">
+        <tr class="members" v-for="member in memberList" v-on:click="activeMember = member">
+          <td class="first_name">{{ member.first_name }} {{ member.last_name }}</td>
+          <td class="position_name">{{ member.position_name }}</td>
+          <td class="gender">{{ member.gender }}</td>
+          <td class="street_address">{{ member.street_address }} {{ member.city }}, {{ member.state }} {{ member.zipcode }}</td>
+          <td class="phone">{{ member.phone }}</td>
+          <td class="email">{{ member.email }}</td>
+          <td class="radio_number">{{ member.radio_number }}</td>
+          <td class="phone">{{ member.station_num }}</td>
+          <td class="certifications"> <form action="cert.html">
+          <button type="submit">View Certifications</button>
+           </form></td>
+          <td class="edit_member"> <form action="edit_member.html">
+          <button type="submit">Edit Member</button>
+          </form></td>
+        <div class="container-fluid" id="membersPage">
+          <td class="certifications">
+              <div class="row" id="memberList">
+                <form method="delete" v-on:submit.prevent="handleNewMemberForm">
+          <button type="submit" id="delete" class="btn btn-primary">Add Member</button>
+          </form></td>
+        </div> </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</center>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
