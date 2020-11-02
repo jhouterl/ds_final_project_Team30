@@ -1,0 +1,3 @@
+# ds_final_project_Team30
+This is the final project for MSIS Core Team 30. Below is the link to our website. You can navigate using the Navigation bar at the top of the screen. On the Certifications Page, you can add a Certification, view Certification Details, as well as edit and delete current Certifications. You can also view Cetifications by each current Member. On the Members Page, you can add, view, edit, and delete Members. Lastly, on the Reports page, you can view members with expired certifications and view members by station and radio number.
+http://ec2-3-86-76-125.compute-1.amazonaws.com/about_us.html
