@@ -1,5 +1,5 @@
-var MemberCerts = new Vue({
-  el: '#MemberCerts',
+var memberCerts = new Vue({
+  el: '#memberCerts',
   data: {
     memberCertList: [],
     member_certification:{}
@@ -8,7 +8,7 @@ var MemberCerts = new Vue({
     fetchMemberCertification() {
       fetch('api/certifications/person_cert_index.php')
       .then(response => response.json())
-      .then(json => { MemberCerts.memberCertList = json })
+      .then(json => { memberCerts.memberCertList = json })
     }},
 
   created() {
