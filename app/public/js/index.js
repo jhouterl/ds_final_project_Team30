@@ -5,11 +5,7 @@ var membersPage = new Vue({
 //    activeMember: null,
     newMember: {}
   },
-//  computed: {
-//    activeMemberName() {
-//      return this.activeMember ? this.activeMember.last_name + ', ' + this.activeMember.first_name : ''
-//    }
-//  },
+
   methods: {
     addMember() {
       fetch('api/records/post.php', {

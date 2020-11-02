@@ -16,9 +16,9 @@ $stmt = $db->prepare (
 
 $stmt->execute();
 
-$memberCertificate = $stmt->fetchAll();
+$memberCertList = $stmt->fetchAll();
 
-$json = json_encode($memberCertificate, JSON_PRETTY_PRINT);
+$json = json_encode($memberCertList, JSON_PRETTY_PRINT);
 
 
 header('Content-Type: application/json');
